@@ -1,0 +1,16 @@
+{
+  "name": "hardyng-serverless",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.385.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^3.32.1"
+  },
+  "scripts": {
+    "offline": "sls offline"
+  },
+  "author": "",
+  "license": "ISC"
+}

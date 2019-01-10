@@ -1,0 +1,375 @@
+{
+  "$": {
+    "serviceId": "dsujgspczt"
+  },
+  "undefined": {
+    "instanceId": "dsujgspczt-w7ys68t9"
+  },
+  "undefined:createSubscription": {
+    "instanceId": "dsujgspczt-vq2zy07n",
+    "type": "aws-lambda",
+    "internallyManaged": false,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/aws-lambda",
+    "inputs": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "createSubscription.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-vq2zy07n"
+    },
+    "state": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "createSubscription.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-vq2zy07n",
+      "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-vq2zy07n",
+      "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-vq2zy07n-execution-role",
+      "defaultRole": {
+        "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-vq2zy07n-execution-role",
+        "service": "lambda.amazonaws.com",
+        "policy": {
+          "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        },
+        "name": "func-dsujgspczt-vq2zy07n-execution-role"
+      }
+    }
+  },
+  "undefined:subscriptionsDb": {
+    "instanceId": "dsujgspczt-hco96uc6",
+    "type": "aws-dynamodb",
+    "internallyManaged": false,
+    "rootPath": "../../../../../../../usr/local/lib/node_modules/serverless-components/registry/aws-dynamodb",
+    "inputs": {
+      "region": "eu-west-1",
+      "tables": [
+        {
+          "name": "subscriptions",
+          "hashKey": "id",
+          "indexes": [
+            {
+              "name": "SubscriptionIdIndex",
+              "type": "global",
+              "hashKey": "id"
+            }
+          ],
+          "schema": {
+            "id": "number",
+            "name": "string",
+            "description": "string"
+          },
+          "options": {
+            "timestamps": true
+          }
+        }
+      ]
+    },
+    "state": {
+      "ddbtables": [
+        {
+          "subscriptions": {
+            "TableDescription": {
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "id",
+                  "AttributeType": "N"
+                }
+              ],
+              "TableName": "subscriptions",
+              "KeySchema": [
+                {
+                  "AttributeName": "id",
+                  "KeyType": "HASH"
+                }
+              ],
+              "TableStatus": "CREATING",
+              "CreationDateTime": "2019-01-10T11:55:27.710Z",
+              "ProvisionedThroughput": {
+                "NumberOfDecreasesToday": 0,
+                "ReadCapacityUnits": 1,
+                "WriteCapacityUnits": 1
+              },
+              "TableSizeBytes": 0,
+              "ItemCount": 0,
+              "TableArn": "arn:aws:dynamodb:us-east-1:926243457802:table/subscriptions",
+              "TableId": "76487da9-5b13-45f4-a77b-990be5bd5c8f",
+              "GlobalSecondaryIndexes": [
+                {
+                  "IndexName": "SubscriptionIdIndex",
+                  "KeySchema": [
+                    {
+                      "AttributeName": "id",
+                      "KeyType": "HASH"
+                    }
+                  ],
+                  "Projection": {
+                    "ProjectionType": "ALL"
+                  },
+                  "IndexStatus": "CREATING",
+                  "ProvisionedThroughput": {
+                    "NumberOfDecreasesToday": 0,
+                    "ReadCapacityUnits": 1,
+                    "WriteCapacityUnits": 1
+                  },
+                  "IndexSizeBytes": 0,
+                  "ItemCount": 0,
+                  "IndexArn": "arn:aws:dynamodb:us-east-1:926243457802:table/subscriptions/index/SubscriptionIdIndex"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "undefined:listSubscriptions": {
+    "instanceId": "dsujgspczt-26nqk2zo",
+    "type": "aws-lambda",
+    "internallyManaged": false,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/aws-lambda",
+    "inputs": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "getSubscriptionList.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-26nqk2zo"
+    },
+    "state": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "getSubscriptionList.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-26nqk2zo",
+      "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-26nqk2zo",
+      "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-26nqk2zo-execution-role",
+      "defaultRole": {
+        "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-26nqk2zo-execution-role",
+        "service": "lambda.amazonaws.com",
+        "policy": {
+          "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        },
+        "name": "func-dsujgspczt-26nqk2zo-execution-role"
+      }
+    }
+  },
+  "undefined:getSubscription": {
+    "instanceId": "dsujgspczt-fkc77t5d",
+    "type": "aws-lambda",
+    "internallyManaged": false,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/aws-lambda",
+    "inputs": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "getSubscription.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-fkc77t5d"
+    },
+    "state": {
+      "memory": 512,
+      "timeout": 10,
+      "handler": "getSubscription.handler",
+      "root": "./services/subscriptions",
+      "env": {
+        "subscriptionTableName": "subscriptions"
+      },
+      "name": "func-dsujgspczt-fkc77t5d",
+      "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-fkc77t5d",
+      "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-fkc77t5d-execution-role",
+      "defaultRole": {
+        "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-fkc77t5d-execution-role",
+        "service": "lambda.amazonaws.com",
+        "policy": {
+          "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        },
+        "name": "func-dsujgspczt-fkc77t5d-execution-role"
+      }
+    }
+  },
+  "undefined:subscriptionsApi": {
+    "instanceId": "dsujgspczt-ohr4rnmj",
+    "type": "rest-api",
+    "internallyManaged": false,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/rest-api",
+    "inputs": {
+      "gateway": "aws-apigateway",
+      "routes": {
+        "/subscriptions": {
+          "post": {
+            "function": {
+              "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-vq2zy07n",
+              "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-vq2zy07n-execution-role"
+            },
+            "cors": true
+          },
+          "get": {
+            "function": {
+              "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-26nqk2zo",
+              "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-26nqk2zo-execution-role"
+            },
+            "cors": true
+          },
+          "/{id}": {
+            "get": {
+              "function": {
+                "arn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-fkc77t5d",
+                "roleArn": "arn:aws:iam::926243457802:role/func-dsujgspczt-fkc77t5d-execution-role"
+              },
+              "cors": true
+            }
+          }
+        }
+      },
+      "name": "api-dsujgspczt-ohr4rnmj"
+    },
+    "state": {
+      "roleArn": "arn:aws:iam::926243457802:role/api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj",
+      "url": "https://djlg5pn8o9.execute-api.us-east-1.amazonaws.com/dev/"
+    }
+  },
+  "undefined:createSubscription:defaultRole": {
+    "instanceId": "dsujgspczt-09hq0cev",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../usr/local/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "func-dsujgspczt-vq2zy07n-execution-role",
+      "service": "lambda.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-vq2zy07n-execution-role",
+      "service": "lambda.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "func-dsujgspczt-vq2zy07n-execution-role"
+    }
+  },
+  "undefined:getSubscription:defaultRole": {
+    "instanceId": "dsujgspczt-pxn62v76",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../usr/local/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "func-dsujgspczt-fkc77t5d-execution-role",
+      "service": "lambda.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-fkc77t5d-execution-role",
+      "service": "lambda.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "func-dsujgspczt-fkc77t5d-execution-role"
+    }
+  },
+  "undefined:listSubscriptions:defaultRole": {
+    "instanceId": "dsujgspczt-bxh7tsrt",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../usr/local/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "func-dsujgspczt-26nqk2zo-execution-role",
+      "service": "lambda.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::926243457802:role/func-dsujgspczt-26nqk2zo-execution-role",
+      "service": "lambda.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "func-dsujgspczt-26nqk2zo-execution-role"
+    }
+  },
+  "undefined:subscriptionsApi:iam": {
+    "instanceId": "dsujgspczt-xpxe4d5o",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj",
+      "service": "apigateway.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::926243457802:role/api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj",
+      "service": "apigateway.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj"
+    }
+  },
+  "undefined:subscriptionsApi:apig": {
+    "instanceId": "dsujgspczt-l4uiv5c5",
+    "type": "aws-apigateway",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../home/adam/.nvm/versions/node/v8.11.3/lib/node_modules/serverless-components/registry/aws-apigateway",
+    "inputs": {
+      "name": "api-dsujgspczt-ohr4rnmj",
+      "roleArn": "arn:aws:iam::926243457802:role/api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj",
+      "routes": {
+        "subscriptions": {
+          "POST": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-vq2zy07n",
+            "cors": true
+          },
+          "GET": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-26nqk2zo",
+            "cors": true
+          }
+        },
+        "subscriptions/{id}": {
+          "GET": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-fkc77t5d",
+            "cors": true
+          }
+        }
+      }
+    },
+    "state": {
+      "name": "api-dsujgspczt-ohr4rnmj",
+      "roleArn": "arn:aws:iam::926243457802:role/api-dsujgspczt-ohr4rnmj-iam-role-dsujgspczt-ohr4rnmj",
+      "routes": {
+        "subscriptions": {
+          "POST": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-vq2zy07n",
+            "cors": true
+          },
+          "GET": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-26nqk2zo",
+            "cors": true
+          }
+        },
+        "subscriptions/{id}": {
+          "GET": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:926243457802:function:func-dsujgspczt-fkc77t5d",
+            "cors": true
+          }
+        }
+      },
+      "id": "djlg5pn8o9",
+      "url": "https://djlg5pn8o9.execute-api.us-east-1.amazonaws.com/dev/",
+      "urls": [
+        "https://djlg5pn8o9.execute-api.us-east-1.amazonaws.com/dev/subscriptions",
+        "https://djlg5pn8o9.execute-api.us-east-1.amazonaws.com/dev/subscriptions/{id}"
+      ]
+    }
+  },
+  "undefined:productsDb": {
+    "instanceId": "dsujgspczt-numkrr91"
+  }
+}
