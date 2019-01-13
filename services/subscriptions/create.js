@@ -2,13 +2,22 @@ const uuid = require('uuid');
 const dynamoDbLib = require('../../lib/dynamodb-lib');
 const { success, failure } = require('../../lib/response-lib');
 
-export const main = async (event, context, callback) => {
-  const data = JSON.parse(event.body);
+export const handler = async (event, context, callback) => {
+  try {
+    const data = JSON.parse(event.body);
+  } catch(e) {
+    return failure({
+      status: false,
+      body: {
+        message: 'Wrong data passed in request.body.',
+      },
+    })
+  }
   const params = {
     TableName: "dev-mono-notes",
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      noteId: uuid.v1(),
+      subscriptionId: uuid.v1(),
       name: data.name,
       createdAt: Date.now()
     }
