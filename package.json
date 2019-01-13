@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "aws-sdk": "^2.385.0"
+    "aws-sdk": "^2.385.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "serverless-offline": "^3.32.1"
