@@ -55,39 +55,6 @@ functions:
         method: post
         cors: true
         authorizer: aws_iam
-  deleteSubscription:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
-    handler: create.handler
-    events:
-    - http:
-        path: /
-        method: delete
-        cors: true
-        authorizer: aws_iam
-  updateSubscription:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
-    handler: create.handler
-    events:
-    - http:
-        path: /
-        method: put
-        cors: true
-        authorizer: aws_iam
-  getSubscription:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
-    handler: create.handler
-    events:
-    - http:
-        path: /
-        method: get
-        cors: true
-        authorizer: aws_iam
 
 resources:
   Outputs:
