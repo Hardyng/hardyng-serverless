@@ -13,9 +13,18 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
 functions:
-  createSubscription:
-    handler: create.handler
+  createUser:
+    handler: createUser.handler
+    events:
+    - http:
+        path: /
+        method: post
+        cors: true
+        authorizer: aws_iam
+  createTopic:
+    handler: createTopic.handler
     events:
     - http:
         path: /

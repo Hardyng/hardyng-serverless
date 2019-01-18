@@ -1,7 +1,9 @@
-.idea
-.idea/**
+.idea/*
 # package directories
 node_modules
 jspm_packages
 # Serverless directories
 .serverless
+.webpack
+.env
+env.yml

@@ -41,7 +41,7 @@ resources:
         - phone_number
         AutoVerifiedAttributes:
         - phone_number
-        MfaConfiguration: "ON"
+        MfaConfiguration: "OPTIONAL"
         SmsAuthenticationMessage: "Confirmation code: {####}. Thank you for using hardyng"
         SmsConfiguration:
           SnsCallerArn: !GetAtt SNSRole.Arn
