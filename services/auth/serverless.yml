@@ -4,7 +4,7 @@ custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
-
+  lambdaServiceName: hardyng-app-mono-subscriptions
 provider:
   name: aws
   runtime: nodejs8.10
@@ -13,26 +13,6 @@ provider:
 
 resources:
   Resources:
-    SNSRole:
-      Type: "AWS::IAM::Role"
-      Properties:
-        AssumeRolePolicyDocument:
-          Version: "2012-10-17"
-          Statement:
-          - Effect: "Allow"
-            Principal:
-              Service:
-              - "cognito-idp.amazonaws.com"
-            Action:
-            - "sts:AssumeRole"
-        Policies:
-        - PolicyName: "CognitoSNSPolicy"
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-            - Effect: "Allow"
-              Action: "sns:publish"
-              Resource: "*"
     CognitoUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
@@ -50,7 +30,7 @@ resources:
       Type: AWS::Cognito::UserPoolClient
       Properties:
         # Generate an app client name based on the stage
-        ClientName: ${self:custom.stage}-hardyng-user-pool-client
+        ClientName: ${self:custom.stage}-mono-user-pool-client
         UserPoolId:
           Ref: CognitoUserPool
         ExplicitAuthFlows:
@@ -62,7 +42,7 @@ resources:
       Type: AWS::Cognito::IdentityPool
       Properties:
         # Generate a name based on the stage
-        IdentityPoolName: ${self:custom.stage}HardyngIdentityPool
+        IdentityPoolName: ${self:custom.stage}MonoIdentityPool
         # Don't allow unathenticated users
         AllowUnauthenticatedIdentities: false
         # Link to our User Pool
@@ -128,7 +108,26 @@ resources:
                   - ':'
                   - 'Fn::ImportValue': ${self:custom.stage}-ApiGatewayRestApiId
                   - '/*'
-
+    SNSRole:
+      Type: "AWS::IAM::Role"
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+              - "cognito-idp.amazonaws.com"
+            Action:
+            - "sts:AssumeRole"
+        Policies:
+        - PolicyName: "CognitoSNSPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+            - Effect: "Allow"
+              Action: "sns:publish"
+              Resource: "*"
   # Print out the Id of the User Pool and Identity Pool that are created
   Outputs:
     UserPoolId:

@@ -1,10 +1,6 @@
-import { provideDb } from './lib/curried'
-import mongoose from 'mongoose';
-async function createUser ({User, event, ...props}) {
-  console.log(event.requestContext.identity.cognitoIdentityId)
-  return await new User({
-    cognitoId: event.requestContext.identity.cognitoIdentityId,
-    username: 'testowy',
-  }).save()
+async function createUser ({User, event, context, ...props}) {
+  // console.log(event.requestContext.identity.cognitoIdentityId)
+  console.log('User confirmed: User-Pool', event.userPoolId+", UserId: " + event.userName);
+  context.done(null, event);
 }
-export const handler = provideDb(createUser)
+export const handler = createUser

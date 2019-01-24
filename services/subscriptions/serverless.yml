@@ -15,32 +15,57 @@ provider:
   region: us-east-1
   environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
 functions:
-  createUser:
-    handler: createUser.handler
+  #  TODO
+  # cognito events not working properly yet
+  # im waiting for pull request to close: https://github.com/serverless/serverless/pull/5642
+  # thread ref: https://github.com/serverless/serverless/issues/5401
+#  createUser:
+#    handler: createUser.handler
+#    events:
+#    - cognitoUserPool:
+#        pool: MyUserPool
+#        trigger: PostConfirmation
+  getTopics:
+    handler: getTopics.handler
     events:
     - http:
-        path: /
-        method: post
+        path: /topics
+        method: get
         cors: true
         authorizer: aws_iam
   createTopic:
     handler: createTopic.handler
     events:
     - http:
-        path: /
+        path: /topics
         method: post
         cors: true
         authorizer: aws_iam
-  sendSmsMessage:
-    handler: sendSms.handler
+  createSubscription:
+    handler: createSubscription.handler
     events:
     - http:
-        path: /
+        path: /subscriptions
         method: post
         cors: true
         authorizer: aws_iam
+#  TODO
+# SMS Handling to go through api
+#  sendSmsMessage:
+#    handler: sendSms.handler
+#    events:
+#    - http:
+#        path: /
+#        method: post
+#        cors: true
+#        authorizer: aws_iam
 
 resources:
+  Resources:
+    CognitoUserPoolMyUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: dev-hardyng-user-pool
   Outputs:
     ApiGatewayRestApiId:
       Value:

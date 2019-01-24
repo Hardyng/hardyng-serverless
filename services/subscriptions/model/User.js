@@ -8,7 +8,7 @@ export const UserSchema = new Schema({
   cognitoId: {
     type: String
   },
-  firstname: {
+  firstName: {
     type: String,
   },
   birth: {
@@ -17,4 +17,5 @@ export const UserSchema = new Schema({
   city: {
     type: String,
   },
+  subscriptions: [Schema.Types.ObjectId]
 });
