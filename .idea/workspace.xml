@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81075ad5-f5b2-4764-8a6b-9f66a3b03f83" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/services/subscriptions/lib/UserAccountType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/subscriptions/createNotification.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/createNotification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/subscriptions/createSubscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/createSubscription.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/subscriptions/createTopic.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/createTopic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscriptions/model/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/model/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscriptions/model/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/model/Subscription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscriptions/model/Topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/model/Topic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscriptions/unsubscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/unsubscribe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/subscriptions/createUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/createUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/subscriptions/lib/sendSms.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/lib/sendSms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/subscriptions/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscriptions/model/User.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +52,7 @@
           <entry key="babelrc" value="3" />
           <entry key="env" value="3" />
           <entry key="gitignore" value="6" />
-          <entry key="js" value="65" />
+          <entry key="js" value="68" />
           <entry key="json" value="19" />
           <entry key="ts" value="1" />
           <entry key="yml" value="15" />
@@ -61,7 +62,7 @@
         <counts>
           <entry key=".env file" value="3" />
           <entry key="JSON" value="22" />
-          <entry key="JavaScript" value="65" />
+          <entry key="JavaScript" value="68" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="TypeScript" value="1" />
           <entry key="YAML" value="15" />
@@ -71,7 +72,7 @@
         <counts>
           <entry key="env" value="52" />
           <entry key="gitignore" value="78" />
-          <entry key="js" value="7500" />
+          <entry key="js" value="7961" />
           <entry key="json" value="143" />
           <entry key="ts" value="114" />
           <entry key="txt" value="1" />
@@ -82,7 +83,7 @@
         <counts>
           <entry key=".env file" value="52" />
           <entry key="JSON" value="143" />
-          <entry key="JavaScript" value="7500" />
+          <entry key="JavaScript" value="7961" />
           <entry key="PLAIN_TEXT" value="79" />
           <entry key="TypeScript" value="114" />
           <entry key="YAML" value="1400" />
@@ -98,6 +99,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/createUser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="61" selection-start-column="61" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Subscription.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -106,74 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/subscriptions/createNotification.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Topic.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="8" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Notification.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/attachModels.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/createTopic.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/createSubscription.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/subscriptions/unsubscribe.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -185,7 +132,58 @@
         <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/sendSms.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+              <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Topic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Notification.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/createTopic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="11" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/UserAccountType.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/subscriptions/createSubscription.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,8 +191,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/subscriptions/model/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="285">
+              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -255,22 +253,23 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/services/subscriptions/cognito-user-pool.yml" />
         <option value="$PROJECT_DIR$/services/auth/serverless.yml" />
-        <option value="$PROJECT_DIR$/services/subscriptions/createUser.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/getTopics.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/lib/curried.js" />
         <option value="$PROJECT_DIR$/lib/response-lib.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/me.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/serverless.yml" />
         <option value="$PROJECT_DIR$/services/subscriptions/lib/attachModels.js" />
-        <option value="$PROJECT_DIR$/services/subscriptions/lib/sendSms.js" />
-        <option value="$PROJECT_DIR$/services/subscriptions/model/User.js" />
-        <option value="$PROJECT_DIR$/services/subscriptions/createTopic.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/model/Topic.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/model/Subscription.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/unsubscribe.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/model/Notification.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/lib/UserAccountType.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/model/User.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/createTopic.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/createUser.js" />
+        <option value="$PROJECT_DIR$/services/subscriptions/lib/sendSms.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/createSubscription.js" />
         <option value="$PROJECT_DIR$/services/subscriptions/createNotification.js" />
-        <option value="$PROJECT_DIR$/services/subscriptions/model/Notification.js" />
       </list>
     </option>
   </component>
@@ -339,13 +338,6 @@
               <item name="services" type="462c0819:PsiDirectoryNode" />
               <item name="subscriptions" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hardyng-serverless" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hardyng-serverless" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="subscriptions" type="462c0819:PsiDirectoryNode" />
-              <item name="mocks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hardyng-serverless" type="b2602c69:ProjectViewProjectNode" />
@@ -547,13 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/createUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/subscriptions/getTopics.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -609,27 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/sendSms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Topic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/subscriptions/unsubscribe.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -640,6 +604,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Notification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Subscription.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -647,37 +618,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/createSubscription.js">
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/UserAccountType.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/createUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/subscriptions/createTopic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/createNotification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="11" selection-end-column="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Notification.js">
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/lib/sendSms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="60">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/createSubscription.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/model/Topic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/subscriptions/createNotification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,3 +1,5 @@
+import { UserAccountType } from '../lib/UserAccountType'
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 export const UserSchema = new Schema({
@@ -7,6 +9,11 @@ export const UserSchema = new Schema({
   },
   cognitoId: {
     type: String
+  },
+  accountType: {
+    type: String,
+    enum: Object.values(UserAccountType),
+    default: 'Default'
   },
   phoneNumber: {
     type: String,

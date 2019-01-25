@@ -2,6 +2,7 @@ import * as AWS from 'aws-sdk'
 
 AWS.config.update({region: 'eu-west-1'})
 
+// TODO: Implement sending sms without subscription or delete
 export function sendSms ({
                            phoneNumber,
                            message
