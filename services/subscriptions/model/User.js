@@ -8,6 +8,9 @@ export const UserSchema = new Schema({
   cognitoId: {
     type: String
   },
+  phoneNumber: {
+    type: String,
+  },
   firstName: {
     type: String,
   },
