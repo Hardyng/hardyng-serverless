@@ -2,6 +2,11 @@ import mongoose from 'mongoose'
 
 var Schema = mongoose.Schema;
 export const SubscriptionSchema = new Schema({
+  arn: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   topic: {
     type: Schema.Types.ObjectId,
     ref: 'Topic'
