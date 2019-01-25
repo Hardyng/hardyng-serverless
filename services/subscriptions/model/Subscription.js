@@ -2,13 +2,18 @@ import mongoose from 'mongoose'
 
 var Schema = mongoose.Schema;
 export const SubscriptionSchema = new Schema({
-  topic: Schema.Types.ObjectId,
-  user: Schema.Types.ObjectId,
-  notifications: [Schema.Types.ObjectId],
-  active: {
-    type: Boolean,
-    default: true,
+  topic: {
+    type: Schema.Types.ObjectId,
+    ref: 'Topic'
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  notifications: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Notification'
+  }],
   createdTimeStamp: {
     type: Date,
     default: Date.now

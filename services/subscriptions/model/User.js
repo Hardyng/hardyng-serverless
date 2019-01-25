@@ -17,5 +17,12 @@ export const UserSchema = new Schema({
   city: {
     type: String,
   },
-  subscriptions: [Schema.Types.ObjectId]
+  subscriptions: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Subscription'
+  }],
+  topics: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Topic'
+  }],
 });

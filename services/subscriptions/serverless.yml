@@ -25,6 +25,14 @@ functions:
 #    - cognitoUserPool:
 #        pool: MyUserPool
 #        trigger: PostConfirmation
+  me:
+    handler: me.handler
+    events:
+    - http:
+        path: /users/me
+        method: get
+        cors: true
+        authorizer: aws_iam
   getTopics:
     handler: getTopics.handler
     events:
@@ -49,6 +57,23 @@ functions:
         method: post
         cors: true
         authorizer: aws_iam
+  createNotification:
+    handler: createNotification.handler
+    events:
+    - http:
+        path: /notifications
+        method: post
+        cors: true
+        authorizer: aws_iam
+  unsubscribe:
+    handler: unsubscribe.handler
+    events:
+    - http:
+        path: /subscriptions
+        method: delete
+        cors: true
+        authorizer: aws_iam
+
 #  TODO
 # SMS Handling to go through api
 #  sendSmsMessage:

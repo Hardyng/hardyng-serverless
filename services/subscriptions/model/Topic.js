@@ -11,8 +11,18 @@ export const TopicSchema = new Schema({
       default: 'This is default topic description.',
     },
     subscriptions: {
-      type: [Schema.Types.ObjectId],
+      type: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Subscription'
+      }],
       default: [],
     },
-    owner: Schema.Types.ObjectId,
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    notifications: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Notification'
+    }]
   })
