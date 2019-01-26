@@ -14,6 +14,11 @@ provider:
   stage: dev
   region: us-east-1
   environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
+  iamRoleStatements:
+  - Effect: Allow
+    Action:
+    - sns:*
+    Resource: '*'
 functions:
   #  TODO
   # cognito events not working properly yet
@@ -87,10 +92,6 @@ functions:
 
 resources:
   Resources:
-    CognitoUserPoolMyUserPool:
-      Type: AWS::Cognito::UserPool
-      Properties:
-        UserPoolName: dev-hardyng-user-pool
   Outputs:
     ApiGatewayRestApiId:
       Value:

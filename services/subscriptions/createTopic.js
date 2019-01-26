@@ -7,7 +7,7 @@ async function createTopic ({Topic, User, event, ...props}) {
   // const {user} = JSON.parse(event.body);
   // const owner = await User.findOne({cognitoId: user});
   const owner = await User.findOne({cognitoId: event.requestContext.identity.cognitoIdentityId});
-  if(!owner || !owner.accountType || owner.accountType === UserAccountType.DEFAULT) {
+  if(!owner || !owner.accountType || owner.accountType.toLowerCase() !== UserAccountType.ADMIN.toLowerCase()) {
     throw new Error('Permission denied.')
   }
   const awsTopic = await new AWS.SNS({apiVersion: '2010-03-31'}).createTopic({Name: name}).promise();

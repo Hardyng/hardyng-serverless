@@ -12,7 +12,7 @@ async function createNotification ({Notification, Topic, User, Subscription, eve
     throw new Error('There is no such topic in database')
   }
   const ownerOfTopic = await User.findOne({cognitoId: cognitoIdentityId}).exec()
-  if(!ownerOfTopic || !ownerOfTopic.accountType || ownerOfTopic.accountType === UserAccountType.DEFAULT) {
+  if(!ownerOfTopic || !ownerOfTopic.accountType || ownerOfTopic.accountType.toLowerCase() !== UserAccountType.ADMIN.toLowerCase()) {
     throw new Error('Permission denied.')
   }
   if(updatedTopic.owner !== ownerOfTopic._id) {
