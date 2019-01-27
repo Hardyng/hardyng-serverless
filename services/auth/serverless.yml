@@ -86,6 +86,10 @@ resources:
           PolicyDocument:
             Version: '2012-10-17'
             Statement:
+            - Effect: "Allow"
+              Action:
+              - "sns:*"
+              Resource: "*"
             - Effect: 'Allow'
               Action:
               - 'mobileanalytics:PutEvents'
@@ -100,7 +104,7 @@ resources:
               Resource:
                 Fn::Join:
                 - ''
-                -
+                -s
                   - 'arn:aws:execute-api:'
                   - Ref: AWS::Region
                   - ':'

@@ -18,14 +18,16 @@ provider:
   - Effect: Allow
     Action:
     - sns:*
+    - cognito-idp:AdminGetUser
     Resource: '*'
 functions:
   #  TODO
   # cognito events not working properly yet
   # im waiting for pull request to close: https://github.com/serverless/serverless/pull/5642
   # thread ref: https://github.com/serverless/serverless/issues/5401
-#  createUser:
-#    handler: createUser.handler
+  # as for now, there is necessity to assign cognito hook to lambda function by hand in console
+  createUser:
+    handler: createUser.handler
 #    events:
 #    - cognitoUserPool:
 #        pool: MyUserPool

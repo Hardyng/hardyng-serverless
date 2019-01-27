@@ -13,7 +13,7 @@ export const UserSchema = new Schema({
   accountType: {
     type: String,
     enum: Object.values(UserAccountType),
-    default: 'Default'
+    default: 'default'
   },
   phoneNumber: {
     type: String,

@@ -5,7 +5,14 @@ async function createSubscription ({Topic, User, Subscription, event, ...props})
   const {topic} = JSON.parse(event.body)
   // const {user} = JSON.parse(event.body);
   const {cognitoIdentityId} = event.requestContext.identity;
-  const updatedUser = await User.findOne({cognitoId: user}).exec()
+
+  const authProvider = event.requestContext.identity.cognitoAuthenticationProvider;
+  // cognito authentication provider looks like:
+  // cognito-idp.us-east-1.amazonaws.com/us-east-1_xxxxxxxxx,cognito-idp.us-east-1.amazonaws.com/us-east-1_xxxxxxxxx:CognitoSignIn:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  const parts = authProvider.split(':');
+  const userPoolUserId = parts[parts.length - 1];
+
+  const updatedUser = await User.findOne({cognitoId: userPoolUserId}).exec()
   if (!updatedUser) {
     throw new Error('There is no such user registered in database')
   }
