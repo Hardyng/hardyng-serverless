@@ -2,6 +2,9 @@
   "name": "hardyng-serverless",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "source-map-support": "^0.4.18"

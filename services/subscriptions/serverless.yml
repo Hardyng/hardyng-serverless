@@ -2,9 +2,13 @@ service: hardyng-app-mono-subscriptions
 
 custom:
   stage: ${opt:stage, self:provider.stage}
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
   webpack:
     webpackConfig: ../../webpack.config.js
     includeModules: true
+
+environment:
+  stripeSecretKey: ${self:custom.environment.stripeSecretKey}
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -47,7 +51,6 @@ functions:
         path: /topics
         method: get
         cors: true
-        authorizer: aws_iam
   createTopic:
     handler: createTopic.handler
     events:
@@ -80,17 +83,14 @@ functions:
         method: delete
         cors: true
         authorizer: aws_iam
-
-#  TODO
-# SMS Handling to go through api
-#  sendSmsMessage:
-#    handler: sendSms.handler
-#    events:
-#    - http:
-#        path: /
-#        method: post
-#        cors: true
-#        authorizer: aws_iam
+  billing:
+    handler: billing.handler
+    events:
+    - http:
+        path: /billing
+        method: post
+        cors: true
+        authorizer: aws_iam
 
 resources:
   Resources:

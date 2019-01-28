@@ -15,13 +15,13 @@ export const TopicSchema = new Schema({
     type: String,
     default: 'This is default topic description.',
   },
-  subscriptions: {
-    type: [{
+  subscriptions: [{
+    type: {
       type: Schema.Types.ObjectId,
-      ref: 'Subscription'
-    }],
+      ref: 'Subscription',
+    },
     default: [],
-  },
+  }],
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User'

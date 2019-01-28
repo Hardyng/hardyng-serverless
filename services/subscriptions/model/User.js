@@ -15,6 +15,14 @@ export const UserSchema = new Schema({
     enum: Object.values(UserAccountType),
     default: 'default'
   },
+  availableNotificationsSend: {
+    type: Number,
+    default: 0,
+  },
+  availableTopicCreations: {
+    type: Number,
+    default: 0,
+  },
   phoneNumber: {
     type: String,
   },

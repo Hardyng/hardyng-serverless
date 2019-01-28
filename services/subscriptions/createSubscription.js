@@ -21,7 +21,9 @@ async function createSubscription ({Topic, User, Subscription, event, ...props})
     throw new Error('There is no such topic in database')
   }
   // const updatedUser = await User.findOne({cognitoId: cognitoIdentityId}).exec()
-
+  if (updatedTopic.subscriptions.length >= 2) {
+    throw new Error('Limit of subscribers per topic is 2.')
+  }
 
   var params = {
     Protocol: 'SMS',

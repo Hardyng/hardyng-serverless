@@ -7,18 +7,24 @@ async function createNotification ({Notification, Topic, User, Subscription, eve
   const {topic, message} = JSON.parse(event.body)
   // const {user} = JSON.parse(event.body)
   const {cognitoIdentityId} = event.requestContext.identity;
+
+
+  // const authProvider = event.requestContext.identity.cognitoAuthenticationProvider;
+  // const parts = authProvider.split(':');
+  // const userPoolUserId = parts[parts.length - 1];
+
+  // const ownerOfTopic = await User.findOne({cognitoId: userPoolUserId})
+  const ownerOfTopic = await User.findOne({cognitoId: 'e5c3fbed-df86-47db-9e9c-6a7a8539877f'})
+  if(!ownerOfTopic) {
+    throw new Error('Permission denied.')
+  }
+  if(ownerOfTopic.availableNotificationsSend <= 0) {
+    throw new Error('User is not able to send any more notifications')
+  }
+
   const updatedTopic = await (await Topic.findById(topic)).populate('subscriptions').execPopulate()
   if(!updatedTopic) {
     throw new Error('There is no such topic in database')
-  }
-
-  const authProvider = event.requestContext.identity.cognitoAuthenticationProvider;
-  const parts = authProvider.split(':');
-  const userPoolUserId = parts[parts.length - 1];
-
-  const ownerOfTopic = await User.findOne({cognitoId: userPoolUserId}).exec()
-  if(!ownerOfTopic || !ownerOfTopic.accountType || ownerOfTopic.accountType.toLowerCase() !== UserAccountType.ADMIN.toLowerCase()) {
-    throw new Error('Permission denied.')
   }
   if(updatedTopic.owner !== ownerOfTopic._id) {
     throw new Error('Not owner of topic.')
@@ -40,7 +46,14 @@ async function createNotification ({Notification, Topic, User, Subscription, eve
       $push: {
         notifications: newNotification,
       }
-    })
+    }).exec()
+  await ownerOfTopic.update(
+    {
+      $inc: {
+        availableNotificationsSend: -1,
+      }
+    }
+  ).exec()
   return await newNotification.save()
 }
 
