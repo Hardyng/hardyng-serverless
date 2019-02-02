@@ -2,11 +2,12 @@ import { provideDb } from './lib/curried'
 import * as AWS from 'aws-sdk';
 import { UserAccountType } from './lib/UserAccountType'
 import { getUserFromDb } from './lib/getUserFromDb';
+import { UserConfig } from './model/User';
 AWS.config.update({ region: 'us-east-1' })
 async function createTopic({ Topic, LoggedUser, event, ...props }) {
   const { name, description } = JSON.parse(event.body);
-  if (LoggedUser.accountType.toLowerCase() !== UserAccountType.ADMIN.toLowerCase()) {
-    throw new Error('Only admin can create topics.')
+  if (LoggedUser.topics.length >= UserConfig.topicsMax[LoggedUser.accountType]) {
+    throw new Error('User reached maximum of topics per account.')
   }
   const awsTopic = await new AWS.SNS({ apiVersion: '2010-03-31' }).createTopic({ Name: name }).promise();
   const newTopic = new Topic({

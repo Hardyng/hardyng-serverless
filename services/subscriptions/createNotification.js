@@ -2,6 +2,7 @@ import { provideDb } from './lib/curried'
 import * as AWS from 'aws-sdk';
 import { UserAccountType } from './lib/UserAccountType'
 import { getUserFromDb } from './lib/getUserFromDb';
+import { UserConfig } from './model/User';
 AWS.config.update({ region: 'us-east-1' })
 
 async function createNotification({ Notification, Topic, LoggedUser, Subscription, event, ...props }) {
@@ -10,11 +11,12 @@ async function createNotification({ Notification, Topic, LoggedUser, Subscriptio
   if (!updatedTopic) {
     throw new Error('There is no such topic in database')
   }
-  if (LoggedUser.accountType.toLowerCase() !== UserAccountType.ADMIN.toLowerCase()) {
-    throw new Error('Permission denied.')
-  }
+
   if (updatedTopic.owner.toString() !== LoggedUser._id.toString()) {
     throw new Error('Not owner of topic.')
+  }
+  if (LoggedUser.notifications.length >= UserConfig.notificationsMax[LoggedUser.accountType]) {
+    throw new Error('User reached maximum of notifications per account.')
   }
   const params = {
     Message: message,

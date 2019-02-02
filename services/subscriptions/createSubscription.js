@@ -1,12 +1,16 @@
 import { provideDb } from './lib/curried'
 import * as AWS from 'aws-sdk';
 import { getUserFromDb } from './lib/getUserFromDb';
+import { UserConfig } from './model/User';
 AWS.config.update({ region: 'us-east-1' });
 async function createSubscription({ LoggedUser, Topic, User, Subscription, event, ...props }) {
   const { topic, subscriptionType } = JSON.parse(event.body)
   const updatedTopic = await Topic.findById(topic);
   if (!updatedTopic) {
     throw new Error('There is no such topic in database')
+  }
+  if (LoggedUser.subscriptions.length >= UserConfig.subscriptionsMax[LoggedUser.accountType]) {
+    throw new Error('User reached maximum of subscriptions per account.')
   }
   var params = {};
   switch (subscriptionType.toLowerCase()) {
