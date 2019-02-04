@@ -7,6 +7,11 @@ export const SubscriptionSchema = new Schema({
     required: true,
     unique: true,
   },
+  type: {
+    type: String,
+    enum: ['sms', 'email'],
+    required: true
+  },
   topic: {
     type: Schema.Types.ObjectId,
     ref: 'Topic'

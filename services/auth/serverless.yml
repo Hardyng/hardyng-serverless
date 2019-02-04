@@ -19,6 +19,7 @@ resources:
         UserPoolName: ${self:custom.stage}-hardyng-user-pool
         UsernameAttributes:
         - phone_number
+        - email
         AutoVerifiedAttributes:
         - phone_number
         MfaConfiguration: "OPTIONAL"
@@ -104,7 +105,7 @@ resources:
               Resource:
                 Fn::Join:
                 - ''
-                -s
+                -
                   - 'arn:aws:execute-api:'
                   - Ref: AWS::Region
                   - ':'

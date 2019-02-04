@@ -15,11 +15,11 @@ provider:
   region: us-east-1
   environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
   iamRoleStatements:
-  - Effect: Allow
-    Action:
-    - sns:*
-    - cognito-idp:AdminGetUser
-    Resource: '*'
+    - Effect: Allow
+      Action:
+        - sns:*
+        - cognito-idp:AdminGetUser
+      Resource: "*"
 functions:
   #  TODO
   # cognito events not working properly yet
@@ -28,58 +28,78 @@ functions:
   # as for now, there is necessity to assign cognito hook to lambda function by hand in console
   createUser:
     handler: createUser.handler
-#    events:
-#    - cognitoUserPool:
-#        pool: MyUserPool
-#        trigger: PostConfirmation
+  #    events:
+  #    - cognitoUserPool:
+  #        pool: MyUserPool
+  #        trigger: PostConfirmation
   me:
     handler: me.handler
     events:
-    - http:
-        path: /users/me
-        method: get
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /users/me
+          method: get
+          cors: true
+          authorizer: aws_iam
   getTopics:
     handler: getTopics.handler
     events:
-    - http:
-        path: /topics
-        method: get
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /topics
+          method: get
+          cors: true
+  getTopic:
+    handler: getTopic.handler
+    events:
+      - http:
+          path: /topics/{id}
+          method: get
+          cors: true
+  updateTopic:
+    handler: updateTopic.handler
+    events:
+      - http:
+          path: /topics/{id}
+          method: put
+          cors: true
+  deleteTopic:
+    handler: deleteTopic.handler
+    events:
+      - http:
+          path: /topics/{id}
+          method: delete
+          cors: true
   createTopic:
     handler: createTopic.handler
     events:
-    - http:
-        path: /topics
-        method: post
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /topics
+          method: post
+          cors: true
+          authorizer: aws_iam
   createSubscription:
     handler: createSubscription.handler
     events:
-    - http:
-        path: /subscriptions
-        method: post
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /subscriptions
+          method: post
+          cors: true
+          authorizer: aws_iam
   createNotification:
     handler: createNotification.handler
     events:
-    - http:
-        path: /notifications
-        method: post
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /notifications
+          method: post
+          cors: true
+          authorizer: aws_iam
   unsubscribe:
     handler: unsubscribe.handler
     events:
-    - http:
-        path: /subscriptions
-        method: delete
-        cors: true
-        authorizer: aws_iam
+      - http:
+          path: /subscriptions
+          method: delete
+          cors: true
+          authorizer: aws_iam
 
 #  TODO
 # SMS Handling to go through api
@@ -104,7 +124,7 @@ resources:
     ApiGatewayRestApiRootResourceId:
       Value:
         Fn::GetAtt:
-        - ApiGatewayRestApi
-        - RootResourceId
+          - ApiGatewayRestApi
+          - RootResourceId
       Export:
         Name: ${self:custom.stage}-ApiGatewayRestApiRootResourceId
