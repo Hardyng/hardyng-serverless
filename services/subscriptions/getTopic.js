@@ -4,8 +4,16 @@ async function getTopic({ Topic, event, ...props }) {
   const query = {
     _id: event.pathParameters.id
   };
-  return await (await Topic.findOne(query))
-    .populate("notifications")
-    .execPopulate();
+  var topic = await Topic.findOne(query);
+  if (!event.queryStringParameters) {
+    return topic;
+  }
+  if (event.queryStringParameters.notifications) {
+    topic = topic.populate("notifications");
+  }
+  if (event.queryStringParameters.subscriptions) {
+    topic = topic.populate("subscriptions");
+  }
+  return await topic.execPopulate();
 }
 export const handler = provideDb(getTopic);

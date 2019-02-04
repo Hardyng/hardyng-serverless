@@ -54,6 +54,20 @@ functions:
           path: /topics/{id}
           method: get
           cors: true
+  updateTopic:
+    handler: updateTopic.handler
+    events:
+      - http:
+          path: /topics/{id}
+          method: put
+          cors: true
+  deleteTopic:
+    handler: deleteTopic.handler
+    events:
+      - http:
+          path: /topics/{id}
+          method: delete
+          cors: true
   createTopic:
     handler: createTopic.handler
     events:
