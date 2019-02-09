@@ -1,8 +1,4 @@
-import { provideDb } from "./lib/curried";
 import * as AWS from "aws-sdk";
-import { UserAccountType } from "./lib/UserAccountType";
-import { getUserFromDb } from "./lib/getUserFromDb";
-import { UserConfig } from "./model/User";
 AWS.config.update({ region: "us-east-1" });
 
 async function createNotification({
@@ -49,4 +45,4 @@ async function createNotification({
   return await newNotification.save();
 }
 
-export const handler = provideDb(getUserFromDb(createNotification));
+export default createNotification;

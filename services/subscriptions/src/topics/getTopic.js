@@ -1,4 +1,3 @@
-import { provideDb } from "./lib/curried";
 async function getTopic({ Topic, event, ...props }) {
   console.log(event.queryStringParameters);
   const query = {
@@ -16,4 +15,4 @@ async function getTopic({ Topic, event, ...props }) {
   }
   return await topic.execPopulate();
 }
-export const handler = provideDb(getTopic);
+export default getTopic;

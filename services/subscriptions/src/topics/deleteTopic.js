@@ -1,5 +1,3 @@
-import { provideDb } from "./lib/curried";
-import { getUserFromDb } from "./lib/getUserFromDb";
 async function deleteTopic({ Topic, LoggedUser, event, ...props }) {
   console.log(event.queryStringParameters);
   const query = {
@@ -14,4 +12,4 @@ async function deleteTopic({ Topic, LoggedUser, event, ...props }) {
     }
   });
 }
-export const handler = provideDb(getUserFromDb(deleteTopic));
+export default deleteTopic;

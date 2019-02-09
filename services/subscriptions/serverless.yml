@@ -27,13 +27,13 @@ functions:
   # thread ref: https://github.com/serverless/serverless/issues/5401
   # as for now, there is necessity to assign cognito hook to lambda function by hand in console
   createUser:
-    handler: createUser.handler
+    handler: handler.createUser
   #    events:
   #    - cognitoUserPool:
   #        pool: MyUserPool
   #        trigger: PostConfirmation
   me:
-    handler: me.handler
+    handler: handler.me
     events:
       - http:
           path: /users/me
@@ -41,35 +41,35 @@ functions:
           cors: true
           authorizer: aws_iam
   getTopics:
-    handler: getTopics.handler
+    handler: handler.getTopics
     events:
       - http:
           path: /topics
           method: get
           cors: true
   getTopic:
-    handler: getTopic.handler
+    handler: handler.getTopic
     events:
       - http:
           path: /topics/{id}
           method: get
           cors: true
   updateTopic:
-    handler: updateTopic.handler
+    handler: handler.updateTopic
     events:
       - http:
           path: /topics/{id}
           method: put
           cors: true
   deleteTopic:
-    handler: deleteTopic.handler
+    handler: handler.deleteTopic
     events:
       - http:
           path: /topics/{id}
           method: delete
           cors: true
   createTopic:
-    handler: createTopic.handler
+    handler: handler.createTopic
     events:
       - http:
           path: /topics
@@ -77,7 +77,7 @@ functions:
           cors: true
           authorizer: aws_iam
   createSubscription:
-    handler: createSubscription.handler
+    handler: handler.createSubscription
     events:
       - http:
           path: /subscriptions
@@ -85,7 +85,7 @@ functions:
           cors: true
           authorizer: aws_iam
   createNotification:
-    handler: createNotification.handler
+    handler: handler.createNotification
     events:
       - http:
           path: /notifications
@@ -93,25 +93,13 @@ functions:
           cors: true
           authorizer: aws_iam
   unsubscribe:
-    handler: unsubscribe.handler
+    handler: handler.unsubscribe
     events:
       - http:
           path: /subscriptions
           method: delete
           cors: true
           authorizer: aws_iam
-
-#  TODO
-# SMS Handling to go through api
-#  sendSmsMessage:
-#    handler: sendSms.handler
-#    events:
-#    - http:
-#        path: /
-#        method: post
-#        cors: true
-#        authorizer: aws_iam
-
 resources:
   Resources:
   Outputs:

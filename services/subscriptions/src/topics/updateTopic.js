@@ -1,5 +1,3 @@
-import { provideDb } from "./lib/curried";
-import { getUserFromDb } from "./lib/getUserFromDb";
 async function updateTopic({ LoggedUser, Topic, event, ...props }) {
   const query = {
     _id: event.pathParameters.id,
@@ -18,4 +16,4 @@ async function updateTopic({ LoggedUser, Topic, event, ...props }) {
     }
   );
 }
-export const handler = provideDb(getUserFromDb(updateTopic));
+export default updateTopic;
